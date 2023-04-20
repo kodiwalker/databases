@@ -16,7 +16,7 @@ describe('Persistent Node Chat Server', () => {
   beforeAll((done) => {
     dbConnection.connect();
 
-       const tablename = ''; // TODO: fill this out
+    const tablename = 'messages';
 
     /* Empty the db table before all tests so that multiple tests
      * (or repeated runs of the tests)  will not fail when they should be passing
@@ -53,8 +53,7 @@ describe('Persistent Node Chat Server', () => {
           // Should have one result:
           expect(results.length).toEqual(1);
 
-          // TODO: If you don't have a column named text, change this test.
-          expect(results[0].text).toEqual(message);
+          expect(results[0].message).toEqual(message);
           done();
         });
       })
